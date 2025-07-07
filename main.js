@@ -54,7 +54,7 @@ function updateBalance() {
     
     // ボタンの有効/無効を更新
     const orderButtons = document.querySelectorAll('.order-btn');
-    const prices = [10000, 15000, 18000];
+    const prices = [2000, 3000, 3000, 5000, 5000, 8000, 10000];
     
     orderButtons.forEach((btn, index) => {
         if (prices[index]) {
@@ -65,11 +65,11 @@ function updateBalance() {
 
 /**
  * 商品を発注する
- * @param {number} length - ケーブルの長さ（m）
+ * @param {string} productName - 商品名
  * @param {number} price - 価格
  * @param {number} deliveryMinutes - 配送時間（分）
  */
-function orderProduct(length, price, deliveryMinutes) {
+function orderProduct(productName, price, deliveryMinutes) {
     if (balance < price) {
         alert('残高が不足しています！');
         return;
@@ -83,7 +83,7 @@ function orderProduct(length, price, deliveryMinutes) {
     
     const order = {
         id: orderCounter,
-        length: length,
+        productName: productName,
         price: price,
         orderTime: orderTime,
         deliveryTime: deliveryTime,
@@ -159,7 +159,7 @@ function showDeliveryNotification(order) {
     const message = document.getElementById('delivery-message');
     
     if (notification && message) {
-        message.textContent = `電気ケーブル ${order.length}m が納品され、倉庫に保管されました！`;
+        message.textContent = `${order.productName} が納品され、倉庫に保管されました！`;
         notification.classList.add('show');
         
         setTimeout(() => {
@@ -204,7 +204,7 @@ function showCancelModal(order) {
         const refund = order.price - cancellationFee;
         
         message.innerHTML = `
-            注文 #${order.id} - 電気ケーブル ${order.length}m をキャンセルしますか？<br><br>
+            注文 #${order.id} - ${order.productName} をキャンセルしますか？<br><br>
             <strong>キャンセル手数料:</strong> ¥${cancellationFee.toLocaleString()}<br>
             <strong>返金額:</strong> ¥${refund.toLocaleString()}
         `;
@@ -381,7 +381,7 @@ function updateOrdersDisplay() {
         return `
             <div class="order-item">
                 <div class="order-header">
-                    <div class="order-title">注文 #${order.id} - 電気ケーブル ${order.length}m</div>
+                    <div class="order-title">注文 #${order.id} - ${order.productName}</div>
                     <div class="order-status ${statusClass}">${statusText}</div>
                 </div>
                 <div class="timer-display">${timerDisplay}</div>
@@ -403,7 +403,7 @@ function updateOrdersDisplay() {
  * アプリケーション初期化
  */
 function initializeApp() {
-    console.log('電気ケーブル発注システムを初期化中...');
+    console.log('配管部品発注システムを初期化中...');
     
     // 残高表示を初期化
     updateBalance();
