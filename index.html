@@ -3,16 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>電気ケーブル発注システム</title>
+    <title>配管部品発注システム</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <h1>⚡ 電気ケーブル発注システム</h1>
+            <h1>🔧 配管部品発注システム</h1>
             <div class="balance">💰 残高: ¥<span id="balance">100,000</span></div>
         </div>
-
         <div class="main-content">
             <div class="products-section">
                 <h2 class="section-title">📦 商品一覧</h2>
@@ -20,37 +19,81 @@
                 <div class="product-card">
                     <div class="product-info">
                         <div class="product-details">
-                            <h3>電気ケーブル 1m</h3>
+                            <h3>エルボ</h3>
+                            <div class="price">¥2,000</div>
+                            <div class="delivery-time">📅 納期: 2分</div>
+                        </div>
+                        <button class="order-btn" onclick="orderProduct('エルボ', 2000, 2)">発注</button>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-info">
+                        <div class="product-details">
+                            <h3>水栓ソケット</h3>
+                            <div class="price">¥3,000</div>
+                            <div class="delivery-time">📅 納期: 2分</div>
+                        </div>
+                        <button class="order-btn" onclick="orderProduct('水栓ソケット', 3000, 2)">発注</button>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-info">
+                        <div class="product-details">
+                            <h3>パルプソケット</h3>
+                            <div class="price">¥3,000</div>
+                            <div class="delivery-time">📅 納期: 2分</div>
+                        </div>
+                        <button class="order-btn" onclick="orderProduct('パルプソケット', 3000, 2)">発注</button>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-info">
+                        <div class="product-details">
+                            <h3>水栓エルボ</h3>
+                            <div class="price">¥5,000</div>
+                            <div class="delivery-time">📅 納期: 2分</div>
+                        </div>
+                        <button class="order-btn" onclick="orderProduct('水栓エルボ', 5000, 2)">発注</button>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-info">
+                        <div class="product-details">
+                            <h3>ボールバルブ</h3>
+                            <div class="price">¥5,000</div>
+                            <div class="delivery-time">📅 納期: 2分</div>
+                        </div>
+                        <button class="order-btn" onclick="orderProduct('ボールバルブ', 5000, 2)">発注</button>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-info">
+                        <div class="product-details">
+                            <h3>万能ホーム水栓</h3>
+                            <div class="price">¥8,000</div>
+                            <div class="delivery-time">📅 納期: 2分</div>
+                        </div>
+                        <button class="order-btn" onclick="orderProduct('万能ホーム水栓', 8000, 2)">発注</button>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-info">
+                        <div class="product-details">
+                            <h3>VPパイプ</h3>
                             <div class="price">¥10,000</div>
                             <div class="delivery-time">📅 納期: 2分</div>
                         </div>
-                        <button class="order-btn" onclick="orderProduct(1, 10000, 2)">発注</button>
-                    </div>
-                </div>
-
-                <div class="product-card">
-                    <div class="product-info">
-                        <div class="product-details">
-                            <h3>電気ケーブル 2m</h3>
-                            <div class="price">¥15,000</div>
-                            <div class="delivery-time">📅 納期: 2分</div>
-                        </div>
-                        <button class="order-btn" onclick="orderProduct(2, 15000, 2)">発注</button>
-                    </div>
-                </div>
-
-                <div class="product-card">
-                    <div class="product-info">
-                        <div class="product-details">
-                            <h3>電気ケーブル 3m</h3>
-                            <div class="price">¥18,000</div>
-                            <div class="delivery-time">📅 納期: 2分</div>
-                        </div>
-                        <button class="order-btn" onclick="orderProduct(3, 18000, 2)">発注</button>
+                        <button class="order-btn" onclick="orderProduct('VPパイプ', 10000, 2)">発注</button>
                     </div>
                 </div>
             </div>
-
+            
             <div class="orders-section">
                 <h2 class="section-title">🚛 発注状況</h2>
                 <div id="orders-container">
@@ -59,12 +102,12 @@
             </div>
         </div>
     </div>
-
+    
     <div id="delivery-notification" class="delivery-notification">
         <h4>📦 納品完了！</h4>
         <p id="delivery-message"></p>
     </div>
-
+    
     <div id="cancel-modal" class="modal-overlay">
         <div class="modal-content">
             <div class="modal-title">⚠️ キャンセル確認</div>
@@ -75,7 +118,7 @@
             </div>
         </div>
     </div>
-
+    
     <script src="main.js"></script>
 </body>
 </html>
